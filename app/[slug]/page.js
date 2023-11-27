@@ -23,12 +23,12 @@ export default async function PostPage({ params }) {
     }
   }
   const { content, data } = matter(file);
-  const discussUrl = `https://x.com/search?q=${encodeURIComponent(
-    `https://overreacted.io/${params.slug}/`,
-  )}`;
-  const editUrl = `https://github.com/gaearon/overreacted.io/edit/main/public/${encodeURIComponent(
-    params.slug,
-  )}/index.md`;
+  // const discussUrl = `https://x.com/search?q=${encodeURIComponent(
+  //   `https://phree.dev/${params.slug}/`,
+  // )}`;
+  // const editUrl = `https://github.com/pportella23/phree.dev/edit/main/public/${encodeURIComponent(
+  //   params.slug,
+  // )}/index.md`;
   return (
     <article>
       <h1
@@ -73,11 +73,11 @@ export default async function PostPage({ params }) {
           />
         </Defs>
         <hr />
-        <p>
+        {/* <p>
           <Link href={discussUrl}>Discuss on 𝕏</Link>
           &nbsp;&nbsp;&middot;&nbsp;&nbsp;
           <Link href={editUrl}>Edit on GitHub</Link>
-        </p>
+        </p> */}
       </div>
     </article>
   );
@@ -169,7 +169,7 @@ export async function generateMetadata({ params }) {
   const file = await readFile("./public/" + params.slug + "/index.md", "utf8");
   let { data } = matter(file);
   return {
-    title: data.title + " — overreacted",
+    title: data.title + " — phree",
     description: data.spoiler,
   };
 }
