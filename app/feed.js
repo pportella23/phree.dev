@@ -1,21 +1,21 @@
 import { Feed } from "feed";
 
 export function generateFeed(posts, metadata) {
-  const site_url = "https://overreacted.io/";
+  const site_url = "https://phree.dev";
 
   const feedOptions = {
     author: {
-      name: "Dan Abramov",
-      email: "dan.abramov@gmail.com",
+      name: "Pedro Portella",
+      email: "pportella23@gmail.com",
       link: site_url,
     },
     description: metadata.description,
-    favicon: `${site_url}/icon.png`,
+    favicon: `${site_url}/nodes.png`,
     feedLinks: { atom: `${site_url}atom.xml`, rss: `${site_url}rss.xml` },
     generator: "Feed for Node.js",
     id: site_url,
     image:
-      "https://pbs.twimg.com/profile_images/1545194945161707520/rqkwPViA_400x400.jpg",
+      "https://avatars.githubusercontent.com/u/49278720?s=400&u=dd4261b7cdcfbe37297142088931e222b6b38b70&v=4",
     link: site_url,
     title: metadata.title,
   };

@@ -5,12 +5,12 @@ import Color from "colorjs.io";
 import { sans } from "./fonts";
 
 export const metadata = {
-  title: "overreacted — A blog by Dan Abramov",
-  description: "A personal blog by Dan Abramov",
+  title: "phree — My piece of the internet",
+  description: "phree — My piece of the internet",
   alternates: {
     types: {
-      "application/atom+xml": "https://overreacted.io/atom.xml",
-      "application/rss+xml": "https://overreacted.io/rss.xml",
+      "application/atom+xml": "https://phree.dev/atom.xml",
+      "application/rss+xml": "https://phree.dev/rss.xml",
     },
   },
 };
@@ -21,7 +21,7 @@ export async function getPosts() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
   const fileContents = await Promise.all(
-    dirs.map((dir) => readFile("./public/" + dir + "/index.md", "utf8")),
+    dirs.map((dir) => readFile("./public/" + dir + "/index.md", "utf8"))
   );
   const posts = dirs.map((slug, i) => {
     const fileContent = fileContents[i];
@@ -56,11 +56,11 @@ export default async function Home() {
 }
 
 function PostTitle({ post }) {
-  let lightStart = new Color("lab(63 59.32 -1.47)");
-  let lightEnd = new Color("lab(33 42.09 -43.19)");
+  let lightStart = new Color("lab(78 -50.08 58.81)");
+  let lightEnd = new Color("lab(54.61 -37.99 13.71)");
   let lightRange = lightStart.range(lightEnd);
-  let darkStart = new Color("lab(81 32.36 -7.02)");
-  let darkEnd = new Color("lab(78 19.97 -36.75)");
+  let darkStart = new Color("lab(86 -40 54)");
+  let darkEnd = new Color("lab(63 -43 52)");
   let darkRange = darkStart.range(darkEnd);
   let today = new Date();
   let timeSinceFirstPost = (today - new Date(2018, 10, 30)).valueOf();
