@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
               <Link href="https://pedroportella.com.br" target="_blank">
                 <img
                   alt="Pedro Portella"
-                  src="https://avatars.githubusercontent.com/u/49278720?s=400&u=dd4261b7cdcfbe37297142088931e222b6b38b70&v=4"
+                  src="https://github.com/pportella23.png"
                   className="relative -top-1 mx-1 inline h-8 w-8 rounded-full"
                 />
               </Link>
