@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "./Link";
 
 export default function PostMeta({ post, hasProfileLink }) {
