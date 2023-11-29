@@ -7,6 +7,7 @@ import remarkSmartpants from "remark-smartypants";
 import rehypePrettyCode from "rehype-pretty-code";
 import overnight from "overnight/themes/Overnight-Slumber.json";
 import "./markdown.css";
+import PostMeta from "../PostMeta";
 
 overnight.colors["editor.background"] = "var(--code-bg)";
 
@@ -39,28 +40,7 @@ export default async function PostPage({ params }) {
       >
         {data.title}
       </h1>
-      <div className="flex flex-row items-center mt-2 mb-2">
-        <Link
-          className="flex flex-row items-center hover:underline"
-          href={`https://github.com/${data.author}`}
-          target="_blank"
-        >
-          <img
-            alt={`${data.author}}`}
-            src={`https://github.com/${data.author}.png`}
-            className="relative mx-1 inline h-8 w-8 rounded-full"
-          />
-          <p className="text-[14px] ml-1 mr-1 font-medium">{data.author}</p>
-        </Link>
-        <p className="text-[14px] text-gray-700 dark:text-gray-300">
-          ·{" "}
-          {new Date(data.date).toLocaleDateString("en", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-      </div>
+      <PostMeta post={data} hasProfileLink={true} />
       <div className="markdown mt-10">
         <Defs>
           <MDXRemote

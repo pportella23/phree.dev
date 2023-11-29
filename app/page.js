@@ -1,6 +1,7 @@
 import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
 import Link from "./Link";
+import PostMeta from "./PostMeta";
 import Color from "colorjs.io";
 import { sans } from "./fonts";
 
@@ -46,7 +47,7 @@ export default async function Home() {
         >
           <article>
             <PostTitle post={post} />
-            <PostMeta post={post} />
+            <PostMeta post={post} hasProfileLink={false} />
             <PostSubtitle post={post} />
           </article>
         </Link>
@@ -81,33 +82,6 @@ function PostTitle({ post }) {
     >
       {post.title}
     </h2>
-  );
-}
-
-function PostMeta({ post }) {
-  return (
-    <div className="flex flex-row items-center mt-1 mb-2">
-      <Link
-        className="flex flex-row items-center hover:underline"
-        href={`https://github.com/${post.author}`}
-        target="_blank"
-      >
-        <img
-          alt={`${post.author}`}
-          src={`https://github.com/${post.author}.png`}
-          className="relative mx-1 inline h-8 w-8 rounded-full"
-        />
-        <p className="text-[14px] ml-1 mr-1 font-medium">{post.author}</p>
-      </Link>
-      <p className="text-[14px] text-gray-700 dark:text-gray-300">
-        ·{" "}
-        {new Date(post.date).toLocaleDateString("en", {
-          day: "numeric",
-          month: "short",
-          year: "numeric",
-        })}
-      </p>
-    </div>
   );
 }
 
